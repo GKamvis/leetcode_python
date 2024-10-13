@@ -1,0 +1,23 @@
+class Solution:
+    def generateParenthesis(self, n: int) -> List[str]:
+        res = []
+        stack = []
+
+        def back(open_c , closed):
+            if closed == open_c and closed == n:
+                res.append(''.join(stack))
+                return
+            if open_c < n:
+                stack.append('(')
+                back(open_c + 1 , closed)
+                stack.pop()
+            if closed < open_c:
+                stack.append(')')
+                back(open_c , closed + 1)
+                stack.pop()
+        back(0 , 0)
+        return res
+
+# time complexity : O(n)
+# space complexity : O(n)
+        

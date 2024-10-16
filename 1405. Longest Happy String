@@ -1,0 +1,30 @@
+class Solution:
+    def longestDiverseString(self, a: int, b: int, c: int) -> str:
+        totalLen = a + b + c
+        A , B , C = 0 , 0 , 0
+        res = ''
+
+        for i in range(0 , totalLen):
+            if (a >= b and a >= c and A != 2) or ( B == 2 and a > 0) or(C == 2 and a > 0):
+                a-=1
+                res +='a'
+                A +=1
+                B = 0
+                C = 0
+            elif (b >= a and b >= c and B != 2) or ( A ==2 and b > 0) or( C ==2 and b > 0):
+                b -= 1
+                res +='b'
+                B += 1
+                A = 0
+                C = 0
+            elif (c >= b and  c >= a and C != 2) or ( A == 2 and c > 0) or( B == 2 and c > 0):
+                c -=1
+                res += 'c'
+                C +=1
+                A = 0
+                B = 0
+        return res
+        
+        
+    # time complexity : O(N)
+    # space complexity : O(1)

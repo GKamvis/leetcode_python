@@ -8,6 +8,7 @@ class Solution:
         #     return False
         return str(x) == str(x)[::-1]
 
-            
+
 # time complexity : O(n) 
 # space complexity : O(n)
+# ::-1 reverse
